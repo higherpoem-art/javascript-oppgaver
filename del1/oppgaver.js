@@ -128,7 +128,11 @@ console.log(elever%elever_pr_lag, "til overs")
 // const temp = -8. Skriv ut "Kuldegrader" hvis temp er under 0.
 // Forventet: Kuldegrader
 
+const temp = -8
 
+if (temp < 0) {
+    console.log("Kuldegrader")
+}
 
 
 // Oppgave 11 (grunnleggende)
@@ -136,6 +140,11 @@ console.log(elever%elever_pr_lag, "til overs")
 // Ellers: "Spillet fortsetter".
 // Forventet: Spillet fortsetter
 
+if (hp <= 0) {
+    console.log("Game Over")
+} else if (hp > 0 ) {
+    console.log("Spillet fortsetter")
+}
 
 // Oppgave 12 (middels)
 // const klokka = 21. Bruk if, else if og else:
@@ -143,6 +152,15 @@ console.log(elever%elever_pr_lag, "til overs")
 // Forventet: God kveld
 // Test også: endre klokka til 8 og kjør på nytt. Da skal det stå God morgen.
 
+const klokka = 8
+
+if (klokka < 10) {
+    console.log("God morgen")
+} else if (klokka < 18) {
+    console.log("God dag")
+} else {
+    console.log("God kveld")
+}
 
 // Oppgave 13 (middels)
 // Det er gode sjanser for nordlys når skydekket er under 30 OG klokka er 18 eller mer.
@@ -150,12 +168,28 @@ console.log(elever%elever_pr_lag, "til overs")
 // Forventet: Gode sjanser for nordlys
 // Test også: skydekke = 80 skal gi: Dårlige sjanser i kveld
 
+const skydekke = 20
+
+const time = 22
+
+if (skydekke < 30 && time > 18) {
+    console.log("Gode sjangser for nordlys")
+}
 
 // Oppgave 14 (avansert)
 // Billett til Fjellheisen: barn under 12 betaler 50 kr, 67 år og eldre betaler 60 kr,
 // alle andre betaler 100 kr. Lag let alder og skriv ut prisen.
 // Forventet: alder 8 -> 50 kr,  alder 30 -> 100 kr,  alder 70 -> 60 kr
 
+let alder = 70
+
+if (alder < 12) {
+    console.log(alder, "->", 50)
+} else if (alder > 67) {
+    console.log(alder, "->", 60)
+} else {
+    console.log(alder, "->", 100)
+}
 
 // ---------------- LØKKER ----------------
 // En løkke gjentar kode.
@@ -170,24 +204,46 @@ console.log(elever%elever_pr_lag, "til overs")
 //            4
 //            5
 
+for (let i = 1; i <= 5; i++) {
+    console.log(i)
+}
 
 // Oppgave 16 (grunnleggende)
 // En rakett skal skytes opp fra Andøya. Tell ned fra 10 til 1 med en for-løkke,
 // og skriv ut "Liftoff!" etter løkka.
 // Forventet: 10, 9, 8 ... 1 (én per linje), så Liftoff!
 
+for (let i = 10; i >= 1; i--) {
+    console.log(i)
+}
+console.log ("Liftoff!")
 
 // Oppgave 17 (middels)
 // Regn ut summen av alle tallene fra 1 til 100 med en løkke.
 // Tips: let sum = 0; før løkka.
 // Forventet: 5050
 
+let sum = 0;
+for (let i = 1; i <= 100; i++){
+    sum = i + sum
+}
+
+console.log(sum)
 
 // Oppgave 18 (middels)
 // Lag let bossHp = 100. Hvert slag tar 15 hp. Bruk en while-løkke og tell
 // hvor mange slag som trengs før bossHp er 0 eller mindre.
 // Forventet: 7 slag
 
+let bossHP = 100
+let slag = 0
+
+while(bossHP > 0){
+    bossHP= bossHP-15
+    slag= slag+1
+}
+
+console.log(slag)
 
 // Oppgave 19 (avansert)
 // Skriv ut tallene 1 til 15. Er tallet delelig med 3, skriv "Nord" i stedet.
@@ -195,6 +251,18 @@ console.log(elever%elever_pr_lag, "til overs")
 // Tips: tall % 3 === 0 betyr delelig med 3.
 // Forventet: 1, 2, Nord, 4, Lys, Nord, 7, 8, Nord, Lys, 11, Nord, 13, 14, Nordlys
 
+for(tall = 1; tall <=15; tall++) {
+    if (tall % 3 === 0 && tall % 5 === 0){
+        console.log("Nordlys")
+    }
+    else if(tall % 3 === 0){
+        console.log("Nord")
+    } else if(tall % 5 === 0){
+        console.log("lys")
+    } else{
+        console.log(tall)
+    }
+}
 
 // ---------------- ARRAYS ----------------
 // En array er en liste: const fag = ["Utvikling", "Driftstøtte"];
@@ -212,6 +280,10 @@ console.log(elever%elever_pr_lag, "til overs")
 // Forventet: Tromsø
 //            5
 
+const byer = ["Tromsø", "Bodø", "Alta", "Harstad", "Narvik"];
+
+console.log(byer[0])
+console.log(byer.length)
 
 // Oppgave 21 (grunnleggende)
 // Legg til "Hammerfest" med push, og skriv ut den siste byen og det nye antallet.
@@ -219,17 +291,32 @@ console.log(elever%elever_pr_lag, "til overs")
 // Forventet: Hammerfest
 //            6
 
+byer.push("Hammerfest")
+console.log(byer[byer.length - 1])
+console.log(byer.length)
 
 // Oppgave 22 (middels)
 // Skriv ut alle byene med en for-løkke.
 // Forventet: Tromsø, Bodø, Alta, Harstad, Narvik, Hammerfest (én per linje)
 
+for (i = 0; i<byer.length; i++){
+    console.log(byer[i])
+}
 
 // Oppgave 23 (middels)
 // const temperaturer = [-4, -6, -2, 1, -8, -11, -3];
 // Tell hvor mange dager det var kaldere enn -5. Bruk for og if.
 // Forventet: 3
 
+let kaldere = 0
+const temperaturer = [-4, -6, -2, 1, -8, -11, -3];
+
+for (i = 0; i<temperaturer.length; i++){
+    if (temperaturer[i]<-5){
+        kaldere = kaldere +1
+    }
+}
+console.log(kaldere)
 
 // Oppgave 24 (avansert)
 // const inventory = ["sverd", "drikk", "skjold", "drikk", "fiskestang", "drikk"];
@@ -238,8 +325,23 @@ console.log(elever%elever_pr_lag, "til overs")
 // Forventet: 3
 //            [ 'sverd', 'skjold', 'fiskestang' ]
 
+let drikk = 0
+const inventory = ["sverd", "drikk", "skjold", "drikk", "fiskestang", "drikk"];
+const nyinventory = []
 
+for (i=0;i<inventory.length;i++){
+    if (inventory[i]==="drikk")
+        drikk= drikk + 1
+    else 
+        nyinventory.push(inventory[i])
+        
+}
+console.log(drikk)
+console.log(nyinventory)
 // Oppgave 25 (avansert)
 // inventory er const, men push virker likevel. Hvorfor?
 // Skriv svaret i oppgavearket.
 // Forventet: ingenting i konsollen
+
+//const definerer ikke en konstant array, men en konstant refferanse til en array
+// hele arrayen kan ikke bli rasigned, men elementer i arrayen kan bli reassigned
